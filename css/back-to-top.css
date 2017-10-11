@@ -1,0 +1,84 @@
+html * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+*,
+:after,
+:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.cd-container {
+    width: 90%;
+    max-width: 768px;
+    margin: 2em auto
+}
+
+.cd-container::after {
+    content: '';
+    display: table;
+    clear: both
+}
+
+.cd-top {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    bottom: .4px;
+    right: .1px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .05);
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: url(../images/cd-top-arrow.svg) center 50% no-repeat #34495e;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+    -moz-transition: opacity .3s 0s, visibility 0s .3s;
+    -o-transition: opacity .3s 0s, visibility 0s .3s;
+    transition: opacity .3s 0s, visibility 0s .3s;
+    z-index: 99
+}
+
+.cd-top.cd-fade-out,
+.cd-top.cd-is-visible,
+.no-touch .cd-top:hover {
+    -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+    -moz-transition: opacity .3s 0s, visibility 0s 0s;
+    -o-transition: opacity .3s 0s, visibility 0s 0s;
+    transition: opacity .3s 0s, visibility 0s 0s
+}
+
+.cd-top.cd-is-visible {
+    visibility: visible;
+    opacity: 1
+}
+
+.cd-top.cd-fade-out {
+    opacity: .5
+}
+
+.no-touch .cd-top:hover {
+    background-color: #34495e;
+    opacity: 1
+}
+
+@media only screen and (min-width:768px) {
+    .cd-top {
+        right: .2px;
+        bottom: .2px
+    }
+}
+
+@media only screen and (min-width:1024px) {
+    .cd-top {
+        height: 60px;
+        width: 60px;
+        right: .3px;
+        bottom: .3px
+    }
+}
